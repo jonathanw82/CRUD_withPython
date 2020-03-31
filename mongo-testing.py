@@ -1,4 +1,3 @@
-
 import pymongo
 import os
 from os import path
@@ -10,11 +9,12 @@ MONGODB_URI = os.getenv("MONGO_URI")
 DBS_NAME = "myTestDB"
 COLLECTION_NAME = "myFirstMDB"
 
+
 def mongo_connect(url):
     try:
         conn = pymongo.MongoClient(url)
+        print("Mongo is connected")
         return conn
-        print("connected")
     except pymongo.errors.ConnectionFailure as e:
         print("Could not connect to mongoDB: %s") % e
 
