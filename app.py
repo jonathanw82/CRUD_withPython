@@ -10,8 +10,8 @@ app = Flask(__name__)
 
 # SET UP - WHAT CLUSTER/SEVER - WHAT DATABASE - WHAT COLLECTION
 MONGO_URI = os.environ.get("MONGO_URI")      # What machine to speak to, who I am and my password (+ what database I want to deal with)
-DBS_NAME = "first_database"                  # What database (serie of "tables")
-COLLECTION_NAME = "movies2"                  # What collection (what table)
+DBS_NAME = "myFirstMDB"                      # What database (serie of "tables")
+COLLECTION_NAME = "movies"                   # What collection (what table)
 
 
 # CONNECTING TO IT
