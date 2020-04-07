@@ -59,7 +59,7 @@ def create():
         # SEND IT TO THE DATABASE
         coll.insert_one(my_wonderful_new_document)
 
-        return render_template('created.html', document=my_wonderful_new_document)
+    return render_template('created.html', document=my_wonderful_new_document)
 
 
 # READ
@@ -67,6 +67,14 @@ def create():
 def read():
     documents = coll.find()
     return render_template('read.html', documents=documents)
+
+
+@app.route("/read/<search>")
+def read_one(search):
+    print('~~~~~~~~~~~~~~~~~~~')
+    print(search)
+    doc = coll.find_one({'title': search})
+    return render_template('found.html', doc=doc)
 
 
 # UPDATE
@@ -100,7 +108,6 @@ def delete():
     coll.remove(what_doc)
 
     return render_template('delete.html')
-
 
 
 if __name__ == '__main__':
